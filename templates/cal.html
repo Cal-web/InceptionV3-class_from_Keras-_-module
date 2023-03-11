@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Inception</title>
+</head>
+<body>
+    <!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="https://nagsalconstruction.co.zw/flowers%20/png-transparent-visual-perception-object-detection-computer-vision-recognition-miscellaneous-text-computer.png"  width="30" height="30" class="d-inline-block align-top" alt="">
+   Inception V3 deep learning model for Object detection  in Video
+  </a>
+
+
+</nav>
+
+<br> <br> <ul class="list-group">
+  <li class="list-group-item list-group-item-dark"><b>Group Members</b></li>
+  <li class="list-group-item">Calvin Mhongwe  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp         R195866Z</li>
+  <li class="list-group-item">Elton Makomo  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  R195929Y</li>
+  <li class="list-group-item">Percerviarence Chitima  &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp R195807D</li>
+  <li class="list-group-item">Tinotenda Nyabereka   &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp R195857Z</li>
+</ul>
+  <br> <br>
+     <div class="container-fluid"><p class="text-justify"> This pre-trained machine model is commonly used to detect Objects in images or videos.
+  In this app we will detect objects from short vedio clips.
+  Please upload a shot video clip of your choice and see how the model predicts</p>
+
+  <p class="font-weight-bold">Please note the video should be:</p>
+
+  <ul class="list-unstyled">
+
+  <li  class="font-italic"> Your video may fall to upload or may predict wrong predictions you if you do not consinder these propertities </li>
+  <li>
+    <ul>
+      <li>Should be in .Mp4_ format</li>
+      <li>Small in size (less than 5MB)</li>
+      <li>Better resolution</li>
+
+    </ul>
+  </li>
+
+
+</ul>
+
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+
+{% if filename %}
+	<div style="margin: 10px auto;">
+		<video autoplay="autoplay" controls="controls" preload="preload">
+			<source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+		</video>
+	</div>
+
+	{% endif %}
+
+
+    <form method="post" enctype="multipart/form-data" action="/">
+        <input type="file" name="file" autocomplete="off" required>
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if output %}
+    <video width="640" height="480" controls>
+        <source src="{{ output }}" type="video/avi">
+        Your browser does not support the video tag.
+    </video>
+{% endif %}
+<br>
+<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search item" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+<br><br>
+
+<p class="text-justify"> Here is the link ot our <a href="https://github.com/Cal-web/InceptionV3-class_from_Keras-_-module">Code </a> on github  and <a href='https://colab.research.google.com/drive/1uEdPB3Tc8B4VA5fw2QNj30Jl-znr5DaT?usp=sharing'> colab.file</a> </p>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<html>
